@@ -1,0 +1,49 @@
+一.blueprint相关介绍
+1.架构
+（1）功能式架构
+在功能式架构中，按照每部分代码的功能来组织你的工程，分割蓝图。所有模板放到同一个文件夹中（通常叫做templates），
+静态文件放在另一个文件夹（通常叫做static）中，而视图放在另外一个文件夹（通常叫做views）中。
+app/
+    __init__.py
+    static/
+    templates/
+        home/
+        user/
+        admin/
+        books/
+        movies/
+    views/
+        __init__.py
+        home.py
+        user.py
+        admin.py
+        books.py
+        movies.py
+    models.py
+
+（2）分区式架构
+在分区式架构中，按照每一业务部分所属的蓝图来组织你的应用。管理面板的所有的模板，视图和静态文件放在一个文件夹中，
+用户控制面板的则放在另一个文件夹中，数据展示面板的则另外创建一个蓝图。
+app/
+    __init__.py
+    admin/
+        __init__.py
+        views.py
+        static/
+        templates/
+    user/
+        __init__.py
+        views.py
+        static/
+        templates/
+    books/
+        __init__.py
+        views.py
+        static/
+        templates/
+    models.py
+
+
+2.使用步骤
+(1)导入并定义蓝图 __init__.py
+(2)注册并使用蓝图 run.py
